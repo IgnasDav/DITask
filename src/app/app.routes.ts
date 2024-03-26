@@ -4,6 +4,7 @@ import { LocationsComponent } from './locations/locations.component';
 import { EpisodesComponent } from './episodes/episodes.component';
 import { HomeComponent } from './home/home.component';
 import { DetailsComponent } from './characters/details/details.component';
+import { EpDetailsComponent } from './episodes/ep-details/ep-details.component';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -14,6 +15,6 @@ export const routes: Routes = [
   { path: 'characters/:id', component: DetailsComponent },
   { path: 'locations', component: LocationsComponent },
   { path: 'episodes', component: EpisodesComponent },
-  { path: 'episodes/:id', component: DetailsComponent },
+  { path: 'episodes/:id', component: EpDetailsComponent },
   // { path: '**', component: HomeComponent },
 ];

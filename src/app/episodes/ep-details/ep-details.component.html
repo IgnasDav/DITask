@@ -1,0 +1,17 @@
+<div class="card">
+  <div class="card-header">
+    <h1>{{ episode.name }}</h1>
+  </div>
+  <div class="card-body">
+    <p>Air Date: {{ episode.air_date }}</p>
+    <p>Episode: {{ episode.episode }}</p>
+    <div>
+      Characters:
+      <ul>
+        @for (character of episode.characters; track $index) {
+        <li>{{ character }}</li>
+        }
+      </ul>
+    </div>
+  </div>
+</div>

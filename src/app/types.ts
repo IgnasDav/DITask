@@ -1,3 +1,5 @@
+//* Characters
+
 export interface Character {
   id: number;
   name: string;
@@ -34,4 +36,52 @@ export interface CharactersRes {
     prev: string | null;
   };
   results: Characters;
+}
+
+//* Episodes
+
+export interface Episode {
+  id: number;
+  name: string;
+  air_date: string;
+  episode: string;
+  characters: string[];
+  url: string;
+  created: string;
+}
+
+export type Episodes = Episode[];
+
+export interface EpisodesRes {
+  info: {
+    count: number;
+    pages: number;
+    next: string;
+    prev: string | null;
+  };
+  results: Episodes;
+}
+
+//* Locations
+
+export interface Location {
+  id: number;
+  name: string;
+  type: string;
+  dimension: string;
+  residents: string[];
+  url: string;
+  created: string;
+}
+
+export type Locations = Location[];
+
+export interface LocationsRes {
+  info: {
+    count: number;
+    pages: number;
+    next: string;
+    prev: string | null;
+  };
+  results: Locations;
 }
