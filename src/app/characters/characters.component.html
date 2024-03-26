@@ -1,3 +1,9 @@
-@for (character of characters; track character.id) {
-  <app-character [character]="character" />
-}
+<mat-form-field>
+  <mat-label>Filter</mat-label>
+  <input matInput (input)="handleFilter($event)" />
+</mat-form-field>
+<div class="characters__list">
+  @for (character of characters$.getValue(); track character.id) {
+    <app-character [character]="character" />
+  }
+</div>

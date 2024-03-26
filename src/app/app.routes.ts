@@ -14,5 +14,5 @@ export const routes: Routes = [
   { path: 'characters/:id', component: DetailsComponent },
   { path: 'locations', component: LocationsComponent },
   { path: 'episodes', component: EpisodesComponent },
-  // { path: '**', component: HomeComponent },
+  { path: '**', component: HomeComponent },
 ];

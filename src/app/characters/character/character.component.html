@@ -2,7 +2,16 @@
   <mat-card>
     <mat-card-header>
       <div mat-card-avatar [style]="getComputedStyles()"></div>
-      <mat-card-title>{{ character()?.name }}</mat-card-title>
+      <mat-card-title
+        >{{ character()?.name }}
+        <button mat-icon-button>
+          @if (character()?.isFavorite) {
+            <mat-icon>favorite</mat-icon>
+          } @else {
+            <mat-icon>favorite_border</mat-icon>
+          }
+        </button></mat-card-title
+      >
     </mat-card-header>
     <mat-card-actions>
       <button mat-button (click)="onDetailsClick()">Details</button>

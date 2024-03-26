@@ -1,1 +1,42 @@
-
+@if (character$ | async; as character) {
+  <mat-card class="example-card">
+    <mat-card-header>
+      <mat-card-title
+        >{{ character.name }}
+        <mat-icon>{{
+          character.status === LifeStatus.Alive ? "checkbox" : "dangerous"
+        }}</mat-icon>
+      </mat-card-title>
+      <mat-card-subtitle>{{ character.species }}</mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image [src]="character.image" alt="Photo of a Shiba Inu" />
+    <mat-card-content>
+      <h4>Gender: {{ character.gender }}</h4>
+      <h4>
+        Location:
+        <a [routerLink]="['/locations']">{{ character.location.name }}</a>
+      </h4>
+      <mat-accordion>
+        <mat-expansion-panel hideToggle>
+          <mat-expansion-panel-header>
+            <mat-panel-title> Episodes </mat-panel-title>
+          </mat-expansion-panel-header>
+          @for (episode of character.episode; track $index) {
+            <p>{{ episode }}</p>
+          }
+        </mat-expansion-panel>
+      </mat-accordion>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-icon-button (click)="toggleFavorite(character.id)">
+        <mat-icon>
+          @if (character.isFavorite) {
+            <mat-icon> favorite </mat-icon>
+          } @else {
+            <mat-icon> favorite_border </mat-icon>
+          }
+        </mat-icon>
+      </button>
+    </mat-card-actions>
+  </mat-card>
+}
