@@ -10,4 +10,17 @@ import { Character } from '../../types';
   templateUrl: './details.component.html',
   styleUrl: './details.component.scss',
 })
-export class DetailsComponent {}
+export class DetailsComponent implements OnInit {
+  private readonly characterService = inject(CharactersService);
+  private readonly activatedRoute = inject(ActivatedRoute);
+  character!: Character;
+
+  ngOnInit(): void {
+    this.activatedRoute.params.subscribe((params) => {
+      const id = params['id'];
+      this.characterService
+        .getCharacter(id)
+        .subscribe((character) => (this.character = character));
+    });
+  }
+}

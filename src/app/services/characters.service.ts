@@ -11,11 +11,13 @@ export class CharactersService {
 
   getCharacters(): Observable<CharactersRes> {
     return this.client.get<CharactersRes>(
-      'https://rickandmortyapi.com/api/character',
+      'https://rickandmortyapi.com/api/character'
     );
   }
 
-  // getCharacter(id: string): Character {
-  //   return this.getCharacters().find((character) => character.id === +id)!;
-  // }
+  getCharacter(id: number): Observable<Character> {
+    return this.client.get<Character>(
+      `https://rickandmortyapi.com/api/character/${id}`
+    );
+  }
 }

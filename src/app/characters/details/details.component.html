@@ -1,1 +1,11 @@
-
+<div class="card">
+  <div class="card-header">
+    <h1>{{ character.name }}</h1>
+  </div>
+  <div class="card-body">
+    <p>Status: {{ character.status }}</p>
+    <img src="{{ character.image }}" alt="{{ character.name }} image" />
+    <div>Origin: {{ character.origin.name }}</div>
+    <div>Location: {{ character.location.name }}</div>
+  </div>
+</div>
